@@ -8,6 +8,7 @@ import os.path
 import fnmatch
 import time
 import locale
+import shutil
 from functools import wraps
 from .utils import *
 from .explorer import *
@@ -679,6 +680,11 @@ class FileExplorer(Explorer):
                     else:
                         content = executor.execute(cmd, encoding=lfEval("&encoding"))
                 self._cmd_start_time = time.time()
+                result = []
+                for c in content:
+                    if shutil.which(c) is None:
+                        result.append(c)
+                content = result
                 return content
             else:
                 self._content = self._getFileList(dir)

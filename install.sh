@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+rm -rf autoload/leaderf/python/fuzzyEngine.cpython-311-darwin.so autoload/leaderf/python/fuzzyMatchC.cpython-311-darwin.so
+
 if [ "$1" = "--reverse" ]
 then
     cd autoload/leaderf/fuzzyMatch_C
