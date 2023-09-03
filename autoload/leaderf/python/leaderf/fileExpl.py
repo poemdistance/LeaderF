@@ -683,7 +683,7 @@ class FileExplorer(Explorer):
                 result = []
                 for c in content:
                     if shutil.which(c) is None:
-                        result.append(c)
+                        result.append(' ' + c)
                 content = result
                 return content
             else:
